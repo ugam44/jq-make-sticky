@@ -1,0 +1,26 @@
+div {
+  height: 40px;
+  border: solid 2px black;
+  padding: 10px;
+  margin-bottom: 5px;
+  box-shadow: 3px 3px 3px #333;
+}
+.clone-me {
+    position: relative;
+}
+.first {
+  background-color: #970808;
+}
+.second {
+  background-color: yellow;
+  float: right;
+  width: 40%;
+}
+.third {
+  background-color: #0F2C64;
+}
+.sticky {
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+}
