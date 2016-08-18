@@ -110,6 +110,19 @@ jQuery.fn.extend({
             });
         }
 
+        var css = '.sticky {   z-index: 10000; position: fixed; top: 0; }',
+            head = document.head,
+            style = document.createElement('style');
+
+        style.type = 'text/css';
+        if (style.styleSheet) {
+            style.styleSheet.cssText = css;
+        }
+        else {
+            style.appendChild(document.createTextNode(css));
+        }
+        head.appendChild(style);
+
         $(window).on("scroll.sticky resize.sticky", function(event) {
             updateSticky(items, event);
         });
