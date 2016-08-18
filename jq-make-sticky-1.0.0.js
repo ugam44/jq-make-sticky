@@ -6,13 +6,15 @@ jQuery.fn.extend({
             return $(element);
         });
         var setOptions = function(params) {
-            var opts = params.options,
-                item = params.item,
+            var opts = params.options, 
+                item = params.item, 
                 topOffset = params.topOffset;
-
+            
             var left = (opts.left || "0px").toString();
             if (left.indexOf("vw") === -1 &&
                 left.indexOf("px") === -1 &&
+                left.indexOf("em") === -1 &&
+                left.indexOf("rem") === -1 &&
                 left.indexOf("%") === -1) {
                 left = left + "px";
             }
@@ -20,6 +22,8 @@ jQuery.fn.extend({
             var right = (opts.right || "0px").toString();
             if (right.indexOf("vw") === -1 &&
                 right.indexOf("px") === -1 &&
+                right.indexOf("em") === -1 &&
+                right.indexOf("rem") === -1 &&
                 right.indexOf("%") === -1) {
                 right = right + "px";
             }
@@ -42,12 +46,15 @@ jQuery.fn.extend({
             }
 
             if (width.indexOf("%") === -1 &&
+                width.indexOf("em") === -1 &&
+                width.indexOf("rem") === -1 &&
                 width.indexOf("px") === -1 &&
                 width.indexOf("vw") === -1) {
                 width = width + "%";
             }
 
             var margin = (opts.margin || "0 auto").toString();
+
 
             var $clone = item.clone()
                 .addClass("sticky")
@@ -67,12 +74,12 @@ jQuery.fn.extend({
                 $clone.css("left", left)
                     .css("right", right);
             }
-
+            
             return $clone;
         };
         var getHeight = function ($element) {
             var total = 0;
-
+            
             total += $element.height();
             total += Number($element.css("padding-top").replace("px", ""));
             total += Number($element.css("padding-bottom").replace("px", ""));
@@ -80,7 +87,7 @@ jQuery.fn.extend({
 
             return total;
         };
-
+        
         var updateSticky = function($items, event) {
             $items.each(function(index, item) {
                 $itemOffset = item.offset().top;
@@ -108,8 +115,8 @@ jQuery.fn.extend({
                         .css("opacity", "1");
                 }
             });
-        }
-
+        };
+        
         var css = '.sticky {   z-index: 10000; position: fixed; top: 0; }',
             head = document.head,
             style = document.createElement('style');
@@ -122,7 +129,7 @@ jQuery.fn.extend({
             style.appendChild(document.createTextNode(css));
         }
         head.appendChild(style);
-
+        
         $(window).on("scroll.sticky resize.sticky", function(event) {
             updateSticky(items, event);
         });
