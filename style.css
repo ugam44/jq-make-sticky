@@ -19,8 +19,3 @@ div {
 .third {
   background-color: #0F2C64;
 }
-.sticky {
-  z-index: 10000;
-  position: fixed;
-  top: 0;
-}
