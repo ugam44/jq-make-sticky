@@ -9,10 +9,10 @@
 </ul>
 
 <h3>What makes jq-make-sticky cool?</h3>
-<p>jq-make-sticky will automatically calculate the position of where your sticky elements (yes I said elements) will go. This means that you can make several things on the page sticky, and they will stack in the correct position based on how many sticky elements are currently active - no more manually hacking your way through this! jq-make-sticky also uses a technique that does not change document flow when you make things stick/unsticky.</p>
+<p>jq-make-sticky will automatically calculate the position of where your sticky elements will go. This means that you can make several things on the page sticky, and they will stack in the correct position based on how many sticky elements are currently active - no more manually hacking your way through this! jq-make-sticky also uses a technique that does not change document flow when you make things stick/unstick.</p>
 
 <h2>Syntax</H2>
-`$("elements").makeSticky([options]);
+`$("elements").makeSticky([options]);`
 
 <h2>Options</h2>
 <table>
